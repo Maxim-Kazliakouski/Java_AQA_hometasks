@@ -99,6 +99,5 @@ public class Computer {
         notebook.turnOn(notebook.name);
         notebook.turnOff(notebook.name);
         notebook.turnOn(notebook.name);
-        notebook.turnOff(notebook.name);
     }
 }
