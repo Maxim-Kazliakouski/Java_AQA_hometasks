@@ -96,6 +96,7 @@ public class Computer {
     public static void main(String[] args) {
         Computer notebook = new Computer("MacbookPro", "intel", 32, 256, 2);
         notebook.printPCInfo();
+        notebook.turnOn(notebook.name);
         notebook.turnOff(notebook.name);
         notebook.turnOn(notebook.name);
         notebook.turnOff(notebook.name);
