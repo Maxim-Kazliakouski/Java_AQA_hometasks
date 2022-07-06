@@ -1,4 +1,4 @@
-package Lesson_7.Vehicles_classes;
+package Lesson_7.Vehicles_types;
 
 public class Air extends Vehicle{
     int wingSpan;

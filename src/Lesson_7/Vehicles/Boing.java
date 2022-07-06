@@ -1,6 +1,6 @@
-package Lesson_7.Vehicles_objects;
+package Lesson_7.Vehicles;
 
-import Lesson_7.Vehicles_classes.CivilAirplane;
+import Lesson_7.Vehicles_types.CivilAirplane;
 
 public class Boing {
     public static void main(String[] args) {

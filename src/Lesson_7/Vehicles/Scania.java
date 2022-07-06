@@ -1,6 +1,6 @@
-package Lesson_7.Vehicles_objects;
+package Lesson_7.Vehicles;
 
-import Lesson_7.Vehicles_classes.Truck;
+import Lesson_7.Vehicles_types.Truck;
 
 public class Scania {
     public static void main(String[] args) {

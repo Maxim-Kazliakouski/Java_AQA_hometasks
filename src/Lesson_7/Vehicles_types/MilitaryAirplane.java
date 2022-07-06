@@ -1,4 +1,4 @@
-package Lesson_7.Vehicles_classes;
+package Lesson_7.Vehicles_types;
 
 import java.util.Scanner;
 
