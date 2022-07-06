@@ -1,4 +1,6 @@
-package Lesson_7.Vehicles_types;
+package Lesson_7.Vehilces_subtype;
+
+import Lesson_7.Vehicles_types.GroundTransport;
 
 public class Truck extends GroundTransport {
     int loadCapacity;
@@ -19,7 +21,7 @@ public class Truck extends GroundTransport {
         System.out.printf("Model --> %s%n", model);
         System.out.printf("Amount of wheels --> %s%n", wheels);
         System.out.printf("Fuel consumption --> %s l/100km%n", fuelConsumption);
-        System.out.printf("Load capacity of truck --> %s kg%n", loadCapacity);
+        System.out.printf("Load capacity of truck --> %s t%n", loadCapacity);
         System.out.println("------------------------------------");
 
     }

@@ -1,12 +1,14 @@
 package Lesson_7.Vehicles_types;
 
-public class Air extends Vehicle{
-    int wingSpan;
-    int lengthOfFlyRoad;
+import Lesson_7.Vehicles_common.Vehicle;
+
+public class Air extends Vehicle {
+    public int wingSpan;
+    public int minLengthOfFlyRoad;
 
     public Air(int horsePower, int maxSpeed, int weight, String model, int wingSpan, int lengthOfFlyRoad) {
         super(horsePower, maxSpeed, weight, model);
         this.wingSpan = wingSpan;
-        this.lengthOfFlyRoad = lengthOfFlyRoad;
+        this.minLengthOfFlyRoad = lengthOfFlyRoad;
     }
 }

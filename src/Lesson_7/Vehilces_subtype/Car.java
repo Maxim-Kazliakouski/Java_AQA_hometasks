@@ -1,4 +1,6 @@
-package Lesson_7.Vehicles_types;
+package Lesson_7.Vehilces_subtype;
+
+import Lesson_7.Vehicles_types.GroundTransport;
 
 public class Car extends GroundTransport {
     String bodyType;

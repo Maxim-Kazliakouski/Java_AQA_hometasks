@@ -1,6 +1,6 @@
 package Lesson_7.Vehicles;
 
-import Lesson_7.Vehicles_types.MilitaryAirplane;
+import Lesson_7.Vehilces_subtype.MilitaryAirplane;
 
 public class IL_76 {
     public static void main(String[] args) {

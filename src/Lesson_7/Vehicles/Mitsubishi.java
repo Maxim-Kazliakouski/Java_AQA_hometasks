@@ -1,6 +1,6 @@
 package Lesson_7.Vehicles;
 
-import Lesson_7.Vehicles_types.Car;
+import Lesson_7.Vehilces_subtype.Car;
 
 public class Mitsubishi {
     public static void main(String[] args) {

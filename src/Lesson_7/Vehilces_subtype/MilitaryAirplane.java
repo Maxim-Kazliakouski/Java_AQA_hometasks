@@ -1,4 +1,6 @@
-package Lesson_7.Vehicles_types;
+package Lesson_7.Vehilces_subtype;
+
+import Lesson_7.Vehicles_types.Air;
 
 import java.util.Scanner;
 
@@ -7,8 +9,8 @@ public class MilitaryAirplane extends Air {
     int amountOfRockets;
 
     public MilitaryAirplane(int horsePower, int maxSpeed, int weight, String model,
-                            int wingSpan, int lengthOfFlyRoad, boolean catapultSystem, int amountOfRockets) {
-        super(horsePower, maxSpeed, weight, model, wingSpan, lengthOfFlyRoad);
+                            int wingSpan, int minLengthOfFlyRoad, boolean catapultSystem, int amountOfRockets) {
+        super(horsePower, maxSpeed, weight, model, wingSpan, minLengthOfFlyRoad);
         this.catapultSystem = catapultSystem;
         this.amountOfRockets = amountOfRockets;
     }
@@ -21,7 +23,7 @@ public class MilitaryAirplane extends Air {
         System.out.printf("Weight --> %s kg%n", weight);
         System.out.printf("Model --> %s%n", model);
         System.out.printf("Wingspan --> %s m%n", wingSpan);
-        System.out.printf("Length of fly road --> %s m%n", lengthOfFlyRoad);
+        System.out.printf("Length of fly road --> %s m%n", minLengthOfFlyRoad);
         System.out.printf("Is there catapult system --> %s%n", catapultSystem);
         System.out.printf("Amount of rockets --> %s%n", amountOfRockets);
         System.out.println("------------------------------------");
