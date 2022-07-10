@@ -9,7 +9,8 @@ public class CalculatorMenu {
         MainMenu mainMenu = new MainMenu();
         Instructions instructions = new Instructions();
         Greetings greetings = new Greetings();
-        OperationsMenuMenu operationsMenu = new OperationsMenuMenu();
+        OperationsMenu operationsMenu = new OperationsMenu();
+        CalculateResults calculateResults = new CalculateResults();
         greetings.show();
         int choice = mainMenu.show();
         while (choice != 0) {
@@ -18,6 +19,10 @@ public class CalculatorMenu {
             }
             if (choice == 2) {
                 choice = instructions.invoke();
+            }
+            if (choice == 3) {
+                calculateResults.invokeResults();
+                choice = 5;
             }
             if (choice == 5) {
                 choice = mainMenu.show();

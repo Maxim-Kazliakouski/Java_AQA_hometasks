@@ -11,11 +11,13 @@ public class Addition implements Calculator {
     }
 
     @Override
-    public void action(double a, double b) {
+    public double action(double a, double b) {
         System.out.println("---------------------------");
         System.out.println("Result of ADDITION operation is --> " + (a + b));
+        double result = a + b;
         System.out.println("---------------------------");
         System.out.printf("Please, choose another option%n");
         System.out.println("or back to the main menu:");
+        return result;
     }
 }

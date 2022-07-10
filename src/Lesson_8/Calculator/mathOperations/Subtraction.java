@@ -11,11 +11,13 @@ public class Subtraction implements Calculator {
     }
 
     @Override
-    public void action(double a, double b) {
+    public double action(double a, double b) {
         System.out.println("---------------------------");
+        double result = a - b;
         System.out.println("Result of SUBTRACTION operation is --> " + (a-b));
         System.out.println("---------------------------");
         System.out.printf("Please, choose another option%n");
         System.out.println("or back to the main menu:");
+        return result;
     }
 }

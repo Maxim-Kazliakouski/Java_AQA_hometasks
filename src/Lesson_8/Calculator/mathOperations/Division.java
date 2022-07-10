@@ -10,18 +10,24 @@ public class Division implements Calculator {
         System.out.println("Please enter 'A' and 'B' values:");
     }
 
+    public boolean checkingDivByZero(double valueB) {
+        if (valueB == 0) {
+            System.out.println("--------------------------");
+            System.out.println("Division by ZERO!!!");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
-    public void action(double a, double b) {
+    public double action(double a, double b) {
         System.out.println("---------------------------");
-        if (b == 0) {
-            System.out.println("Division by ZERO!");
-        }
-        else {
-            double result = a/b;
-            System.out.format("Result of DIVISION operation is --> %.2f%n", result);
-        }
+        double result = a / b;
+        System.out.format("Result of DIVISION operation is --> %.2f%n", result);
         System.out.println("---------------------------");
         System.out.printf("Please, choose another option%n");
         System.out.println("or back to the main menu:");
+        return result;
     }
 }

@@ -11,12 +11,13 @@ public class Multiply implements Calculator {
     }
 
     @Override
-    public void action(double a, double b) {
+    public double action(double a, double b) {
         System.out.println("---------------------------");
         double result = a*b;
         System.out.format("Result of MULTIPLY operation is --> %.2f%n", result);
         System.out.println("---------------------------");
         System.out.printf("Please, choose another option%n");
         System.out.println("or back to the main menu:");
+        return result;
     }
 }

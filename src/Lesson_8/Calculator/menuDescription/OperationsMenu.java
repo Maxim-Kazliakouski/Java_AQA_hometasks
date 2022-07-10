@@ -10,16 +10,7 @@ public class OperationsMenu extends EnterChoice {
                 && choiceMenuWithOperations != 3
                 && choiceMenuWithOperations != 4
                 && choiceMenuWithOperations != 5) {
-            System.out.println("---------------------------");
-            System.out.println("-----Choose operation:-----");
-            System.out.println("---------------------------");
-            System.out.println("1. Operation '+'");
-            System.out.println("2. Operation '-'");
-            System.out.println("3. Operation '/'");
-            System.out.println("4. Operation '*'");
-            System.out.println("5. Back to the main menu");
-            System.out.println("0. Exit from the app");
-            System.out.println("---------------------------");
+           descriptionOperationMenu();
             choiceMenuWithOperations = performChoice();
             if (choiceMenuWithOperations == 0) {
                 System.out.println("---------------------------");
@@ -34,5 +25,17 @@ public class OperationsMenu extends EnterChoice {
             }
         }
         return choiceMenuWithOperations;
+    }
+    private void descriptionOperationMenu(){
+        System.out.println("---------------------------");
+        System.out.println("-----Choose operation:-----");
+        System.out.println("---------------------------");
+        System.out.println("1. Operation '+'");
+        System.out.println("2. Operation '-'");
+        System.out.println("3. Operation '/'");
+        System.out.println("4. Operation '*'");
+        System.out.println("5. Back to the main menu");
+        System.out.println("0. Exit from the app");
+        System.out.println("---------------------------");
     }
 }
