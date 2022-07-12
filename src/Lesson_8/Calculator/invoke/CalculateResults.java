@@ -1,7 +1,10 @@
 package Lesson_8.Calculator.invoke;
 
-public class CalculateResults extends OperationsMenu {
-    public void invokeResults() {
+import Lesson_8.Calculator.DataBase;
+
+public class CalculateResults extends OperationsMenu implements DataBase {
+    @Override
+    public void printHistory() {
         if (resultsCalculate[0] == null) {
             descriptionNoResults();
         } else {
@@ -18,8 +21,35 @@ public class CalculateResults extends OperationsMenu {
         System.out.println("-----------------------");
     }
 
+    private void descriptionAllHistory() {
+        System.out.println("-----------------------");
+        System.out.println("All results: ");
+        System.out.println("-----------------------");
+    }
+
     private void descriptionNoResults() {
         System.out.println("--------------------------");
         System.out.println("There are no results yet...");
     }
+
+    @Override
+    public void printAllHistory() {
+        if (allResults.size() == 0) {
+            descriptionNoResults();
+        } else {
+            descriptionAllHistory();
+            for (int i = 0; i < allResults.size(); i++) {
+                System.out.println(allResults.get(i));
+            }
+        }
+    }
+
+    @Override
+    public void recordToAllHistory(double result, String typeOfOperation) {
+    }
+
+    @Override
+    public void recordHistory(double result, String typeOfOperation) {
+    }
 }
+

@@ -21,7 +21,11 @@ public class CalculatorMenu {
                 choice = instructions.invoke();
             }
             if (choice == 3) {
-                calculateResults.invokeResults();
+                calculateResults.printHistory();
+                choice = 5;
+            }
+            if (choice == 4) {
+                calculateResults.printAllHistory();
                 choice = 5;
             }
             if (choice == 5) {

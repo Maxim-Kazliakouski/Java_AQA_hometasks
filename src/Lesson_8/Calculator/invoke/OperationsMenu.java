@@ -1,15 +1,18 @@
 package Lesson_8.Calculator.invoke;
 
+import Lesson_8.Calculator.DataBase;
 import Lesson_8.Calculator.enteringValues.EnterValue;
 import Lesson_8.Calculator.mathOperations.Addition;
 import Lesson_8.Calculator.mathOperations.Division;
 import Lesson_8.Calculator.mathOperations.Multiply;
 import Lesson_8.Calculator.mathOperations.Subtraction;
 
-public class OperationsMenu extends Lesson_8.Calculator.menuDescription.OperationsMenu {
-    // creating array for results and set the array's length
-    static String[] resultsCalculate = new String[3];
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class OperationsMenu extends Lesson_8.Calculator.menuDescription.OperationsMenu implements DataBase {
     static int indexPosition = 0;
+    static int indexPositionForAllHistory = 0;
 
     public int invoke() {
         int choice = show();
@@ -40,12 +43,10 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
         System.out.print("'B' = ");
     }
 
-    public void recordCalculatingResult(double calcResult, String operation) {
-        if (indexPosition >= resultsCalculate.length) {
-            indexPosition = 0;
-        }
-        resultsCalculate[indexPosition] = indexPosition + 1 + ". " + operation + String.valueOf(calcResult);
-        indexPosition++;
+    public void recordCalculatingResultDivByZeroToAllHistory() {
+        allResults.add(indexPositionForAllHistory, indexPositionForAllHistory + 1 + ". " + "Division by ZERO!"
+                + "\n" + gettingDate());
+        indexPositionForAllHistory++;
     }
 
     public void recordCalculatingResultDivByZero() {
@@ -64,7 +65,8 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
         descriptionSecondValue();
         double valueB = enterValue.perform();
         double addResult = addition.action(valueA, valueB);
-        recordCalculatingResult(addResult, "The result of ADDITION operation --> ");
+        recordHistory(addResult, "The result of ADDITION operation --> ");
+        recordToAllHistory(addResult, "The result of ADDITION operation --> ");
         return show();
     }
 
@@ -76,7 +78,8 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
         descriptionSecondValue();
         double valueB = enterValue.perform();
         double addResult = subtraction.action(valueA, valueB);
-        recordCalculatingResult(addResult, "The result of SUBTRACTION operation --> ");
+        recordHistory(addResult, "The result of SUBTRACTION operation --> ");
+        recordToAllHistory(addResult, "The result of SUBTRACTION operation --> ");
         return show();
     }
 
@@ -89,10 +92,12 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
         double valueB = enterValue.perform();
         if (division.checkingDivByZero(valueB)) {
             recordCalculatingResultDivByZero();
+            recordCalculatingResultDivByZeroToAllHistory();
             return show();
         } else {
             double addResult = division.action(valueA, valueB);
-            recordCalculatingResult(addResult, "The result of DIVISION operation --> ");
+            recordHistory(addResult, "The result of DIVISION operation --> ");
+            recordToAllHistory(addResult, "The result of DIVISION operation --> ");
             return show();
         }
     }
@@ -105,8 +110,40 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
         descriptionSecondValue();
         double valueB = enterValue.perform();
         double addResult = multiply.action(valueA, valueB);
-        recordCalculatingResult(addResult, "The result of MULTIPLY operation --> ");
+        recordHistory(addResult, "The result of MULTIPLY operation --> ");
+        recordToAllHistory(addResult, "The result of MULTIPLY operation --> ");
         return show();
+    }
+
+    public String gettingDate() {
+        Date dateNow = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm:ss', and date: 'yyyy.MM.dd");
+        return "Operation was performed at " + formatForDateNow.format(dateNow);
+    }
+
+    @Override
+    public void recordHistory(double result, String typeOfOperation) {
+        if (indexPosition >= resultsCalculate.length) {
+            indexPosition = 0;
+        }
+        resultsCalculate[indexPosition] = indexPosition + 1 + ". " + typeOfOperation + result;
+        indexPosition++;
+    }
+
+    @Override
+    public void recordToAllHistory(double result, String typeOfOperation) {
+        allResults.add(indexPositionForAllHistory, indexPositionForAllHistory + 1 + ". " + typeOfOperation
+                + result + "\n" + gettingDate());
+        indexPositionForAllHistory++;
+
+    }
+
+    @Override
+    public void printHistory() {
+    }
+
+    @Override
+    public void printAllHistory() {
     }
 }
 
