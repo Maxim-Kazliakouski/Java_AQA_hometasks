@@ -12,54 +12,19 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
     static int indexPosition = 0;
 
     public int invoke() {
-        EnterValue enterValue = new EnterValue();
         int choice = show();
         while (choice != 0 && choice != 5) {
             if (choice == 1) {
-                Addition addition = new Addition();
-                descriptionFirstValue();
-                double valueA = enterValue.perform();
-                descriptionSecondValue();
-                double valueB = enterValue.perform();
-                double addResult = addition.action(valueA, valueB);
-                recordCalculatingResult(addResult, "The result of ADDITION operation --> ");
-                choice = show();
+                choice = calculateAddition();
             }
             if (choice == 2) {
-                Subtraction subtraction = new Subtraction();
-                descriptionFirstValue();
-                double valueA = enterValue.perform();
-                descriptionSecondValue();
-                double valueB = enterValue.perform();
-                double addResult = subtraction.action(valueA, valueB);
-                recordCalculatingResult(addResult, "The result of SUBTRACTION operation --> ");
-                choice = show();
+                choice = calculateSubtraction();
             }
             if (choice == 3) {
-                Division division = new Division();
-                descriptionFirstValue();
-                double valueA = enterValue.perform();
-                descriptionSecondValue();
-                double valueB = enterValue.perform();
-                if (division.checkingDivByZero(valueB)) {
-                    recordCalculatingResultDivByZero();
-                    choice = show();
-                } else
-                {
-                    double addResult = division.action(valueA, valueB);
-                    recordCalculatingResult(addResult, "The result of DIVISION operation --> ");
-                    choice = show();
-                }
+                choice = calculateDivision();
             }
             if (choice == 4) {
-                Multiply multiply = new Multiply();
-                descriptionFirstValue();
-                double valueA = enterValue.perform();
-                descriptionSecondValue();
-                double valueB = enterValue.perform();
-                double addResult = multiply.action(valueA, valueB);
-                recordCalculatingResult(addResult, "The result of MULTIPLY operation --> ");
-                choice = show();
+                choice = calculateMultiply();
             }
         }
         return choice;
@@ -79,16 +44,71 @@ public class OperationsMenu extends Lesson_8.Calculator.menuDescription.Operatio
         if (indexPosition >= resultsCalculate.length) {
             indexPosition = 0;
         }
-        resultsCalculate[indexPosition] = indexPosition + 1 +". " + operation + String.valueOf(calcResult);
+        resultsCalculate[indexPosition] = indexPosition + 1 + ". " + operation + String.valueOf(calcResult);
         indexPosition++;
     }
 
-    public void
-    recordCalculatingResultDivByZero() {
+    public void recordCalculatingResultDivByZero() {
         if (indexPosition >= resultsCalculate.length) {
             indexPosition = 0;
         }
-        resultsCalculate[indexPosition] = indexPosition + 1 +". " + "Division by ZERO!";
+        resultsCalculate[indexPosition] = indexPosition + 1 + ". " + "Division by ZERO!";
         indexPosition++;
     }
+
+    private int calculateAddition() {
+        EnterValue enterValue = new EnterValue();
+        Addition addition = new Addition();
+        descriptionFirstValue();
+        double valueA = enterValue.perform();
+        descriptionSecondValue();
+        double valueB = enterValue.perform();
+        double addResult = addition.action(valueA, valueB);
+        recordCalculatingResult(addResult, "The result of ADDITION operation --> ");
+        return show();
+    }
+
+    private int calculateSubtraction() {
+        EnterValue enterValue = new EnterValue();
+        Subtraction subtraction = new Subtraction();
+        descriptionFirstValue();
+        double valueA = enterValue.perform();
+        descriptionSecondValue();
+        double valueB = enterValue.perform();
+        double addResult = subtraction.action(valueA, valueB);
+        recordCalculatingResult(addResult, "The result of SUBTRACTION operation --> ");
+        return show();
+    }
+
+    private int calculateDivision() {
+        EnterValue enterValue = new EnterValue();
+        Division division = new Division();
+        descriptionFirstValue();
+        double valueA = enterValue.perform();
+        descriptionSecondValue();
+        double valueB = enterValue.perform();
+        if (division.checkingDivByZero(valueB)) {
+            recordCalculatingResultDivByZero();
+            return show();
+        } else {
+            double addResult = division.action(valueA, valueB);
+            recordCalculatingResult(addResult, "The result of DIVISION operation --> ");
+            return show();
+        }
+    }
+
+    private int calculateMultiply() {
+        EnterValue enterValue = new EnterValue();
+        Multiply multiply = new Multiply();
+        descriptionFirstValue();
+        double valueA = enterValue.perform();
+        descriptionSecondValue();
+        double valueB = enterValue.perform();
+        double addResult = multiply.action(valueA, valueB);
+        recordCalculatingResult(addResult, "The result of MULTIPLY operation --> ");
+        return show();
+    }
 }
+
+
+
